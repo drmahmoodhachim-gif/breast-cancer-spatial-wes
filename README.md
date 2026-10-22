@@ -21,7 +21,7 @@
 
 This repository is code only. Sequencing reads, alignments, variant tables and the clinical table are not included. The Word manuscript is the text of record; these scripts are the analysis named for that manuscript. An archive DOI has not been issued.
 
-**Contents:** [Workflow](#workflow) · [Scripts by step](#scripts-by-step) · [Not in this repository](#not-in-this-repository) · [Software](#software-used-for-the-published-run) · [Licence](#licence)
+**Contents:** [Workflow](#workflow) · [Scripts by step](#scripts-by-step) · [Not in this repository](#not-in-this-repository) · [External tools](#external-tools-used-for-the-published-run) · [Licence](#licence)
 
 ## Workflow
 
@@ -161,7 +161,7 @@ Sequencing data, BAMs, VCFs, the clinical table, and local credential files are 
 > [!WARNING]
 > Do not rerun `scripts/02_run_sarek.sh`, `scripts/05_run_facets.sh`, `scripts/12_hla_typing.sh`, or `scripts/17_dilution_test.py` to recreate the published tables: those steps rewrite sequencing files.
 
-## Software used for the published run
+## External tools used for the published run
 
 nf-core/sarek 3.10.0, BWA-MEM 0.7.19-r1273, GATK 4.6.2.0, Mutect2, Strelka2 2.9.10, Ensembl VEP 116, FACETS 0.6.2, PyClone-VI 0.1.6, scarHRD 0.1.1, MEDICC2 1.1.2, SigProfilerAssignment with COSMIC SBS v3.4 restricted to SBS1, SBS2, SBS3, SBS4, SBS5, and SBS13, TcellExTRECT 1.0.3, OptiType through nf-core/hlatyping 2.2.0, MHCflurry 2.0.6, peddy 0.4.8. AlphaMissense and REVEL were read from the Ensembl REST API, release 116, on 14 October 2026. Analysis Python is the `wes-tjn` environment. Figures use R 4.3.3.
 
