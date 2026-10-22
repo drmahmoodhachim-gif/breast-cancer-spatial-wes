@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+title: Analysis code for a spatial whole-exome series of five breast tumours
+message: >-
+  No archive DOI has been issued. If you use this code, cite the accompanying
+  manuscript once it is published.
+type: software
+authors:
+  - name: Breast cancer spatial exome study authors
+date-released: 2026-10-22
+version: 0.1.0

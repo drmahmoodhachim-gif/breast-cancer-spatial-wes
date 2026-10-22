@@ -1,0 +1,20 @@
+# Immune module: T cell ExTRECT (R) + helpers. Docker is used for nf-core/hlatyping, VEP and pVACtools.
+# mamba env create -f envs/immune.yml && conda activate wes-tjn-immune
+# then in R:  devtools::install_github("McGranahanLab/TcellExTRECT")
+name: wes-tjn-immune
+channels: [conda-forge, bioconda]
+dependencies:
+  - r-base=4.3
+  - r-devtools
+  - r-ggplot2
+  - bioconductor-genomicranges
+  - bioconductor-rsamtools
+  - samtools
+  - bcftools
+  - htslib
+  - python=3.11
+  - pandas
+  - numpy
+  - scipy
+  - matplotlib
+  - pyyaml

@@ -1,0 +1,13 @@
+# FACETS environment (step facets)
+# mamba env create -f envs/facets.yml && conda activate wes-tjn-facets
+name: wes-tjn-facets
+channels: [conda-forge, bioconda]
+dependencies:
+  - r-base=4.3
+  - r-facets
+  - snp-pileup
+  - python=3.11
+  - pandas
+  # scarHRD (GitHub sztup/scarHRD, CRAN archive 0.1.1) computes HRD-LOH, TAI and LST.
+  # Not available as a current CRAN or bioconda build for R 4.3. Install into wes-tjn-facets:
+  #   Rscript -e 'install.packages(c("remotes","data.table"), repos="https://cloud.r-project.org"); BiocManager::install("sequenza", ask=FALSE, update=FALSE); remotes::install_github("sztup/scarHRD", upgrade="never")'

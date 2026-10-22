@@ -1,0 +1,32 @@
+name: r-figures
+channels:
+  - conda-forge
+  - bioconda
+  - nodefaults
+dependencies:
+  - r-base=4.3
+  - bioconductor-complexheatmap
+  - bioconductor-karyoploter
+  - bioconductor-ggtree
+  - bioconductor-mutationalpatterns
+  - bioconductor-trackviewer
+  - bioconductor-maftools
+  # bioconda publishes this as `ascat` (there is no bioconductor-ascat package).
+  - ascat
+  - r-ggplot2
+  - r-patchwork
+  - r-svglite
+  - r-jsonlite
+  - r-circlize
+  - r-remotes
+  - r-cairo
+  - r-dplyr
+  - r-readr
+  - r-tidyr
+  - r-ape
+  - bioconductor-treeio
+  - r-scales
+  - cairo
+  - pango
+  # Installed from CRAN after env creation, not from these channels:
+  # packcircles (clonevol cell.plot), plus GitHub: clonevol, fishplot, MutationTimeR.

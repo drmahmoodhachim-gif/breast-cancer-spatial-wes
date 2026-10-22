@@ -1,0 +1,40 @@
+# Somatic variant filtering thresholds (cite these exactly in Methods).
+# Change only with a matching entry in 00_admin/decision_log.md.
+primary_caller: mutect2_joint          # T + J jointly vs N
+require_filter_pass: true              # FilterMutectCalls PASS
+min_depth_tumor_side: 20               # T or J depth for a call to count in that sample
+min_depth_normal: 10
+min_alt_reads_call: 4                  # alt reads needed in >=1 tumour-side sample
+min_vaf_call: 0.05                     # VAF needed in >=1 tumour-side sample (WES discovery floor)
+# Per-sample presence (used for shared/private classification)
+min_alt_reads_present: 3
+min_vaf_present: 0.03
+power_threshold: 0.80                  # "absent" only if P(detect) >= this, else "not_evaluable"
+# D065. Absent uses P(alt >= max(3, ceil(0.03*depth))) at half the other VAF.
+# The reads-only rule, P(alt >= 3) alone, is retained as spatial_class_reads_only.
+absence_rule: joint_alt_and_vaf
+coding_consequences:                   # for TMB and oncoplot
+  - missense_variant
+  - stop_gained
+  - stop_lost
+  - start_lost
+  - frameshift_variant
+  - inframe_insertion
+  - inframe_deletion
+  - splice_acceptor_variant
+  - splice_donor_variant
+  - protein_altering_variant
+# Strelka2 is NOT required; it is a confidence tier (tier1 = Mutect2 PASS + Strelka2 PASS)
+strelka_tier: true
+# Look-back in N
+lookback_min_mapq: 20
+lookback_min_baseq: 20
+lookback_alpha_fdr: 0.05
+lookback_confident_vaf: 0.05           # below this, N evidence is reported as "supporting reads" only
+lookback_min_alt_confident: 4
+lookback_min_alt_per_strand: 1
+lookback_min_median_dist_from_read_end: 10
+# Clonality
+pyclone_min_mutations: 30              # below this per patient, report CCF only (no clustering)
+pyclone_num_clusters: 10
+pyclone_restarts: 20

@@ -1,0 +1,22 @@
+# Downstream analysis environment (steps headcheck, qc, variants, lookback, ccf, pyclone, tmb_sigs, tables, figures)
+# mamba env create -f envs/analysis.yml && conda activate wes-tjn
+name: wes-tjn
+channels: [conda-forge, bioconda]
+dependencies:
+  - python=3.11
+  - pandas>=2.1
+  - numpy
+  - scipy
+  - matplotlib>=3.8
+  - pyyaml
+  - openpyxl
+  - pysam>=0.22
+  - samtools
+  - bcftools
+  - nextflow>=24.04
+  - pip
+  - pip:
+      - pyclone-vi
+      - SigProfilerAssignment
+      - SigProfilerMatrixGenerator
+# After creating: python -c "from SigProfilerMatrixGenerator import install as g; g.install('GRCh38')"

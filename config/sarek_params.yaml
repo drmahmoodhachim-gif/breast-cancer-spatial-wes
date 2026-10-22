@@ -1,0 +1,10 @@
+input: "config/samplesheet.csv"
+outdir: "results"
+genome: "GATK.GRCh38"
+wes: true
+intervals: "03_resources/exome2plus_targets_hg38.pad100.bed"
+trim_fastq: true
+save_output_as_bam: true
+tools: "mutect2,strelka,ngscheckmate,cnvkit,vep"
+joint_mutect2: true
+skip_tools: "fastqc"
