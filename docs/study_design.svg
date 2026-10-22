@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 330" width="880" height="330" font-family="Helvetica, Arial, sans-serif">
+  <title>Study design: adjacent normal, junction and tumour from five breast tumours, each whole-exome sequenced</title>
+  <defs>
+    <linearGradient id="tissue" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#0072B2" stop-opacity="0.18"/>
+      <stop offset="0.5" stop-color="#E69F00" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#882255" stop-opacity="0.30"/>
+    </linearGradient>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3d3d3a"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="880" height="330" rx="16" fill="#ffffff"/>
+
+  <text x="440" y="38" text-anchor="middle" font-size="20" font-weight="700" fill="#1a1a1a">Spatial sampling of each tumour</text>
+  <text x="440" y="62" text-anchor="middle" font-size="13" fill="#5f5e5a">5 patients × 3 regions = 15 whole exomes</text>
+
+  <!-- tissue strip -->
+  <rect x="60" y="88" width="760" height="96" rx="48" fill="url(#tissue)" stroke="#c9c7c0"/>
+
+  <!-- Normal -->
+  <circle cx="190" cy="136" r="34" fill="#0072B2"/>
+  <text x="190" y="143" text-anchor="middle" font-size="22" font-weight="700" fill="#ffffff">N</text>
+  <!-- Junction -->
+  <circle cx="440" cy="136" r="34" fill="#E69F00"/>
+  <text x="440" y="143" text-anchor="middle" font-size="22" font-weight="700" fill="#1a1a1a">J</text>
+  <!-- Tumour -->
+  <circle cx="690" cy="136" r="34" fill="#882255"/>
+  <text x="690" y="143" text-anchor="middle" font-size="22" font-weight="700" fill="#ffffff">T</text>
+
+  <line x1="232" y1="136" x2="396" y2="136" stroke="#3d3d3a" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#arr)"/>
+  <line x1="482" y1="136" x2="646" y2="136" stroke="#3d3d3a" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#arr)"/>
+
+  <text x="190" y="212" text-anchor="middle" font-size="15" font-weight="700" fill="#0072B2">Adjacent normal</text>
+  <text x="190" y="232" text-anchor="middle" font-size="12.5" fill="#5f5e5a">germline reference</text>
+  <text x="190" y="249" text-anchor="middle" font-size="12.5" fill="#5f5e5a">tumour-in-normal check</text>
+
+  <text x="440" y="212" text-anchor="middle" font-size="15" font-weight="700" fill="#B07800">Junction</text>
+  <text x="440" y="232" text-anchor="middle" font-size="12.5" fill="#5f5e5a">tumour–normal boundary</text>
+  <text x="440" y="249" text-anchor="middle" font-size="12.5" fill="#5f5e5a">shared vs private variants</text>
+
+  <text x="690" y="212" text-anchor="middle" font-size="15" font-weight="700" fill="#882255">Tumour</text>
+  <text x="690" y="232" text-anchor="middle" font-size="12.5" fill="#5f5e5a">tumour core</text>
+  <text x="690" y="249" text-anchor="middle" font-size="12.5" fill="#5f5e5a">clonal structure</text>
+
+  <rect x="250" y="276" width="380" height="36" rx="18" fill="#f1efe8" stroke="#c9c7c0"/>
+  <text x="440" y="299" text-anchor="middle" font-size="13.5" fill="#1a1a1a">Each region → whole-exome sequencing → nf-core/sarek</text>
+</svg>
