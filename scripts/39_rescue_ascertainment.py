@@ -4,7 +4,6 @@
 The stored median ratios are the D054 simulation. Do not rerun this script to
 refresh them: the look-back dispersion prior has since been refit. A rerun would
 replace those medians. The observed column is per patient.
-"""
 
 Simulates normal alternate reads at primary shared sites from a beta-binomial
 whose mean is the tumour-in-normal slope times the tumour allele fraction,

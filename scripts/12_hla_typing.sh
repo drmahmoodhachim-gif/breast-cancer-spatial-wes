@@ -12,7 +12,7 @@ source "$PROJECT_DIR/config/project.env"
 OUT="$PROJECT_DIR/14_immune/hla"; FQ="$OUT/fastq_md"; mkdir -p "$OUT" "$FQ"
 SHEET="$OUT/hlatyping_samplesheet_md.csv"
 THREADS_X="${THREADS_HLA:-4}"
-SAMTOOLS="${SAMTOOLS:-/home/chimeric/miniconda3/envs/wes-tjn/bin/samtools}"
+SAMTOOLS="${SAMTOOLS:-samtools}"
 # Keep the recalibrated-BAM OptiType table for the comparison.
 if [[ -s "$OUT/hla_types.tsv" && ! -s "$OUT/hla_types_recal.tsv" ]]; then
   cp "$OUT/hla_types.tsv" "$OUT/hla_types_recal.tsv"
@@ -46,7 +46,7 @@ nextflow run nf-core/hlatyping -r "$HLATYPING_VERSION" -profile "$NXF_PROFILE" \
   -work-dir "$OUT/work_md" \
   --input "$SHEET" --outdir "$OUT/results_md" --genome GRCh38
 
-PY="${PY:-/home/chimeric/miniconda3/envs/wes-tjn/bin/python}"
+PY="${PY:-python3}"
 "$PY" - "$OUT/results_md" "$OUT/hla_types.tsv" "$OUT/hla_types_recal.tsv" "$OUT/hla_discordance_recal_vs_md.tsv" <<'PY'
 import sys, glob, os, re, pandas as pd
 rows = []

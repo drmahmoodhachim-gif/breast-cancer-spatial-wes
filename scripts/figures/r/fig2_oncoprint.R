@@ -1,7 +1,9 @@
 #!/usr/bin/env Rscript
 # Figure 2 oncoprint. Rows: drivers, core pathway genes hit in >=2 patients, and
 # named copy-number events. Columns: junction and tumour.
-source("/home/chimeric/WES_TJN_project/scripts/figures/r/fig_style.R")
+.script_file <- sub("^--file=", "", grep("^--file=", commandArgs(trailingOnly = FALSE), value = TRUE))
+.fig_r_dir <- if (length(.script_file)) dirname(normalizePath(.script_file[1])) else file.path(Sys.getenv("PROJECT_DIR", "."), "scripts", "figures", "r")
+source(file.path(.fig_r_dir, "fig_style.R"))
 suppressPackageStartupMessages({
   library(ComplexHeatmap)
   library(circlize)

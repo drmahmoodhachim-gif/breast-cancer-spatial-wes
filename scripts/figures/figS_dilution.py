@@ -12,10 +12,10 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from fig_style import INK2, WIDTH, save, setup  # noqa: E402
+from fig_style import INK2, PROJECT_DIR, WIDTH, save, setup  # noqa: E402
 
 setup()
-tsv = Path("/home/chimeric/WES_TJN_project/08_lookback_N/dilution_test.tsv")
+tsv = PROJECT_DIR / "08_lookback_N" / "dilution_test.tsv"
 df = pd.read_csv(tsv, sep="\t")
 if "recovered" not in df.columns:
     raise SystemExit("dilution_test.tsv has no recovered column")

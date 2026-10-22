@@ -24,7 +24,7 @@ def bam_for(patient, spec):
 def mpileup_snv(bam, chrom, pos, alt):
     import shutil
     import subprocess
-    sam = shutil.which("samtools") or "/home/chimeric/miniconda3/envs/wes-tjn/bin/samtools"
+    sam = shutil.which("samtools") or "samtools"
     cmd = [sam, "mpileup", "-r", f"{chrom}:{pos}-{pos}", str(bam)]
     out = subprocess.run(cmd, capture_output=True, text=True)
     if out.returncode != 0 or not out.stdout.strip():

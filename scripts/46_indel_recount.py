@@ -16,9 +16,20 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import pysam
 
-ROOT = Path("/home/chimeric/WES_TJN_project")
-BAM_ROOT = Path("/mnt/e/WES_TJN/sarek_scratch/results/preprocessing/recalibrated")
-SAMTOOLS = "/home/chimeric/miniconda3/envs/wes-tjn/bin/samtools"
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def _env_value(key):
+    env_file = ROOT / "config" / "project.env"
+    if env_file.exists():
+        for line in env_file.read_text().splitlines():
+            if line.startswith(key + "="):
+                return line.split("=", 1)[1].strip().strip('"')
+    return ""
+
+
+BAM_ROOT = Path(_env_value("SAREK_OUTDIR") or ROOT / "sarek_results") / "preprocessing" / "recalibrated"
+SAMTOOLS = shutil.which("samtools") or "samtools"
 OUT = ROOT / "00_admin" / "indel_allele_recount.tsv"
 SNAP = ROOT / "00_admin" / "pileup_snapshots"
 SNAP.mkdir(parents=True, exist_ok=True)

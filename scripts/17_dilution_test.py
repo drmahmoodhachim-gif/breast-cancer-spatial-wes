@@ -12,6 +12,7 @@ fraction f of the original tumour counts to the original normal counts:
 The CI is the 2.5–97.5 percentile of 1000 site bootstraps of the observed slope.
 """
 import subprocess
+import shutil
 import sys
 from pathlib import Path
 
@@ -26,7 +27,7 @@ from common import PROJECT_DIR, load_env, load_filters, write_provenance  # noqa
 env = load_env()
 F = load_filters()
 RES = Path(env["SAREK_OUTDIR"])
-SAMTOOLS = "/home/chimeric/miniconda3/envs/wes-tjn/bin/samtools"
+SAMTOOLS = env.get("SAMTOOLS") or shutil.which("samtools") or "samtools"
 MINMQ, MINBQ = F["lookback_min_mapq"], F["lookback_min_baseq"]
 PATIENTS = ["DH00018", "DH00023"]
 # 0 keeps no tumour templates (-s 1.000) and still rewrites the normal by the same merge.

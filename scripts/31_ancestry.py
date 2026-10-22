@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 """1000 Genomes superpopulation for each adjacent normal, via peddy."""
+import shutil
 import subprocess
 import sys
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
+import peddy
 
 
 _ORIG_FROMSTRING = np.fromstring
@@ -27,8 +29,8 @@ from common import PATIENTS, PROJECT_DIR, load_env, write_provenance  # noqa: E4
 env = load_env()
 RES = Path(env["SAREK_OUTDIR"])
 FASTA = env["REFERENCE_FASTA"]
-BCFTOOLS = "/home/chimeric/miniconda3/envs/wes-tjn/bin/bcftools"
-SITES = Path("/home/chimeric/miniconda3/envs/wes-tjn/lib/python3.11/site-packages/peddy/GRCH38.sites")
+BCFTOOLS = env.get("BCFTOOLS") or shutil.which("bcftools") or "bcftools"
+SITES = Path(env.get("PEDDY_SITES") or Path(peddy.__file__).resolve().parent / "GRCH38.sites")
 OUT = PROJECT_DIR / "16_ancestry"
 OUT.mkdir(parents=True, exist_ok=True)
 

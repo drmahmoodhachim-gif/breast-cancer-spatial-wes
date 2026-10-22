@@ -1,6 +1,8 @@
 #!/usr/bin/env Rscript
 # DH00023: VAF groups, clonal spheres, chr7 copy number, KMT2C lollipop.
-source("/home/chimeric/WES_TJN_project/scripts/figures/r/fig_style.R")
+.script_file <- sub("^--file=", "", grep("^--file=", commandArgs(trailingOnly = FALSE), value = TRUE))
+.fig_r_dir <- if (length(.script_file)) dirname(normalizePath(.script_file[1])) else file.path(Sys.getenv("PROJECT_DIR", "."), "scripts", "figures", "r")
+source(file.path(.fig_r_dir, "fig_style.R"))
 suppressPackageStartupMessages({
   library(ggplot2)
   library(grid)

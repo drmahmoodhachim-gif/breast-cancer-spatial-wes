@@ -1,7 +1,10 @@
 # Publication style shared with scripts/figures/fig_style.py.
 # Widths are journal columns in millimetres. Type is 7 pt Helvetica (Arial metric).
 
-PROJECT_DIR <- Sys.getenv("PROJECT_DIR", unset = "/home/chimeric/WES_TJN_project")
+# The figure scripts set .fig_r_dir (scripts/figures/r) before sourcing this file;
+# the project root is three levels up. PROJECT_DIR in the environment overrides it.
+.default_root <- if (exists(".fig_r_dir")) normalizePath(file.path(.fig_r_dir, "..", "..", "..")) else getwd()
+PROJECT_DIR <- Sys.getenv("PROJECT_DIR", unset = .default_root)
 WIDTH_MM <- c(single = 89, onehalf = 120, double = 183)
 COL_N <- "#0072B2"
 COL_J <- "#E69F00"

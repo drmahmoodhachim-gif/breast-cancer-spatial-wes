@@ -57,7 +57,7 @@ These files exist in the working analysis and are not part of the final paper:
 - cloud-launch scripts, mail scripts, and one-off `_tmp_` scripts
 - `run_all.sh`, because that runner still calls the dropped oncoprint and the pathway figure
 
-Sequencing data, BAMs, VCFs, the clinical table, and local credential files are not in this repository. Paths inside the scripts are the paths on the analysis machine. Copy `config/project.env.example` to `config/project.env` and point it at local reference files before any rerun. Do not rerun `scripts/02_run_sarek.sh`, `scripts/05_run_facets.sh`, `scripts/12_hla_typing.sh`, or `scripts/17_dilution_test.py` to recreate the published tables: those steps rewrite sequencing files.
+Sequencing data, BAMs, VCFs, the clinical table, and local credential files are not in this repository. Scripts find files from this project folder, from `config/project.env`, or from the tools installed on the computer. Copy `config/project.env.example` to `config/project.env` and point it at local reference files before any rerun. Do not rerun `scripts/02_run_sarek.sh`, `scripts/05_run_facets.sh`, `scripts/12_hla_typing.sh`, or `scripts/17_dilution_test.py` to recreate the published tables: those steps rewrite sequencing files.
 
 ## Software used for the published run
 
@@ -65,4 +65,4 @@ nf-core/sarek 3.10.0, BWA-MEM 0.7.19-r1273, GATK 4.6.2.0, Mutect2, Strelka2 2.9.
 
 ## Licence
 
-Copyright 2026 the authors. No open-source licence has been selected. See `LICENSE`.
+These scripts are released under the MIT licence. See `LICENSE`. The external tools they call are installed separately, through `envs/` and nf-core/sarek, and keep their own licences.
